@@ -19,8 +19,10 @@ public class JwtService {
 
     private final String SECRET = "c0b4294d9fe934c499b85916a2b1ab04369a1d006d82e3ac2ba6391453fdb0b9";
 
-    public String getToken(String userName){
+    public String getToken(String userId, String userName){
         HashMap<String, Object> claims = new HashMap<>();
+        System.out.println("UserId :"+ userId);
+        claims.put("userId", userId);
         return createToken(claims, userName);
     }
 

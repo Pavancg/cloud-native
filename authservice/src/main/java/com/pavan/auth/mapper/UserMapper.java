@@ -4,6 +4,8 @@ package com.pavan.auth.mapper;
 import com.pavan.auth.dto.request.RegisterRequest;
 import com.pavan.auth.dto.response.UserResponse;
 import com.pavan.auth.entity.User;
+import com.pavan.auth.enums.Role;
+import com.pavan.auth.enums.UserStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +22,8 @@ public class UserMapper {
                 .fullName(request.fullName())
                 .email(request.email())
                 .password(request.password())
+                .role(Role.USER)
+                .status(UserStatus.ACTIVE)
                 .build();
     }
 

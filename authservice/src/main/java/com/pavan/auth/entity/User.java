@@ -1,6 +1,8 @@
 package com.pavan.auth.entity;
 
 
+import com.pavan.auth.enums.Role;
+import com.pavan.auth.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
@@ -35,4 +37,12 @@ public class User {
     protected void onCreate(){
         this.createdAt = LocalDateTime.now();
     }
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private UserStatus status = UserStatus.ACTIVE;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role = Role.USER;
 }
